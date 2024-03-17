@@ -1,3 +1,6 @@
+// Установить NODE_ENV в 'development' перед импортом плагина DefinePlugin
+process.env.NODE_ENV = "development";
+
 const path = require("path");
 const webpack = require("webpack");
 
@@ -25,7 +28,7 @@ module.exports = {
     new webpack.DefinePlugin({
       "process.env": {
         // This has effect on the react lib size
-        NODE_ENV: JSON.stringify("production"),
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },
     }),
   ],
